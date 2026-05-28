@@ -11,18 +11,18 @@ food_menu = {
 }
 
 total = 0.0
-
-while True:
-    order = input("Item: ")
-    
-    if order in food_menu:
-        total += food_menu[order]
-        print(f"Total R{food_menu[order]:.2f}")
-        print(f"Total: R{total:.2f}")
+try:
+    while True:
+  
+        order = input("Item (press Ctrl z to exit): ").strip().title()
         
-    elif order == "c":
-        print(f"Final Total: R{total:.2f}")
-        break
+        if order in food_menu:
+            total += food_menu[order]
+            print(f"Total R{food_menu[order]:.2f}")
+            print(f"Total: R{total:.2f}")
+        else:
+            print("Item not found")
         
-    else:
-        print("Item not found.")
+except EOFError:
+    print()
+            
